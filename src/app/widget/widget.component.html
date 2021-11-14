@@ -1,0 +1,31 @@
+<div class="widget">
+    <span class="map-title">{{serverInfo?.Map || ''}}</span>
+<!-- <table>
+  <tr *ngFor="let player of players">
+      <td>{{player.Name}}</td>
+      <td>{{player.TimeF}}</td>
+  </tr>
+</table> -->
+
+<table mat-table [dataSource]="players" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="TimeF">
+      <th mat-header-cell *matHeaderCellDef> Playing </th>
+      <td mat-cell *matCellDef="let element"> {{element.TimeF}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>
