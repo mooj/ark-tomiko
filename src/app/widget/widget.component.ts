@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 interface Player {
   Frags: number,
@@ -23,7 +24,7 @@ interface ServerResponse {
 export class WidgetComponent implements OnInit {
   @Input() ipport: string = '';
   private interval: any;
-  private queryUrl = 'api/';
+  private queryUrl = environment.api_url;
   
   players: any;
   serverInfo: any;
