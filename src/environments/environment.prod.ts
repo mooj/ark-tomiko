@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api_url: 'https://arkservers.net/api/query/'
+  baseURL: 'https://arkservers.net/api/query/'
 };
