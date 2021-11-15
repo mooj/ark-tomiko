@@ -1,9 +1,11 @@
 {
   "name": "ark-tomiko",
   "version": "0.0.0",
+  "main": "server.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config src/proxy.conf.json",
+    "start": "nodemon server.js",
+    "start:dev": "ng serve --proxy-config src/proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -22,6 +24,9 @@
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
     "enhanced-resolve": "^5.8.3",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15",
+    "request": "^2.88.2",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

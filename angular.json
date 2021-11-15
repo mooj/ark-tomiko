@@ -74,17 +74,14 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "ark-tomiko:build",
-            "proxyConfig": "src/proxy.conf.json",
             "disableHostCheck": true
           },
           "configurations": {
             "production": {
-              "browserTarget": "ark-tomiko:build:production",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "ark-tomiko:build:production"
             },
             "development": {
-              "browserTarget": "ark-tomiko:build:development",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "ark-tomiko:build:development"
             }
           },
           "defaultConfiguration": "development"

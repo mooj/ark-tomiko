@@ -25,8 +25,8 @@ export class WidgetComponent implements OnInit {
   @Input() ipport: string = '';
   private interval: any;
   // private queryUrl = environment.api_url;
-  private queryUrl = 'api/';
-  
+  private queryUrl = 'api/query/';
+
   players: any;
   serverInfo: any;
   displayedColumns: string[] = [ 'Name', 'TimeF'];
