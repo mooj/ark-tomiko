@@ -24,7 +24,8 @@ interface ServerResponse {
 export class WidgetComponent implements OnInit {
   @Input() ipport: string = '';
   private interval: any;
-  private queryUrl = environment.api_url;
+  // private queryUrl = environment.api_url;
+  private queryUrl = 'api/';
   
   players: any;
   serverInfo: any;
