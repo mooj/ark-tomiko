@@ -2,7 +2,7 @@ const path = require("path");
 const express = require("express");
 const request = require("request");
 const DIST_DIR = path.join(__dirname, "docs");
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 //const router = express.Router();
 
