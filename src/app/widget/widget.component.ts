@@ -52,7 +52,7 @@ export class WidgetComponent implements OnInit, OnDestroy {
       if (res && res.info) {
         this.players = res.players;
         this.serverInfo = res.info;
-        this.serverDay = res.rules.DayTime_s;
+        this.serverDay = res.rules?.DayTime_s || '0';
         this.somethingWentWrong = false;
       } else {
         this.somethingWentWrong = true;

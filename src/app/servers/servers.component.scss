@@ -14,6 +14,10 @@
     color: brown;
 }
 
+.action-link a:hover {
+    cursor: pointer;
+}
+
 ::ng-deep .mat-expansion-panel{
     background: transparent;
     color: rgba(0,0,0,0); /* transparent */
