@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -12,7 +12,7 @@ interface Player {
 
 
 interface ServerResponse {
-  info : {Map: string};
+  info : {Map: string, MaxPlayers: number, Players: number};
   players: Player[]
 }
 
@@ -21,8 +21,9 @@ interface ServerResponse {
   templateUrl: './widget.component.html',
   styleUrls: ['./widget.component.scss']
 })
-export class WidgetComponent implements OnInit {
+export class WidgetComponent implements OnInit, OnDestroy {
   @Input() ipport: string = '';
+  @Input() name: string = '';
   private interval: any;
   // private queryUrl = environment.api_url;
   private queryUrl = 'api/query/';
@@ -31,6 +32,12 @@ export class WidgetComponent implements OnInit {
   serverInfo: any;
   displayedColumns: string[] = [ 'Name', 'TimeF'];
   constructor(private http: HttpClient) { }
+
+  ngOnDestroy(): void {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
 
   ngOnInit(): void {
     this.loadPlayers();

@@ -1,5 +1,5 @@
 .widget {
-    background-color: rgb(175, 137, 87);
+    background:transparent;
     padding: 5px 5px;
 }
 
@@ -17,4 +17,9 @@ table {
 }
 .mat-column-TimeF {
     width: 40%;
+}
+
+b, span {
+    color: black; 
+    background:rgba(199, 192, 127, 0.87); 
 }

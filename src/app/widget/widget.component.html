@@ -1,5 +1,5 @@
 <div class="widget">
-    <b>{{serverInfo?.Map || ''}}</b>
+    <b>{{name}}</b> <span> Players:({{serverInfo?.Players || 0}}/ {{serverInfo?.MaxPlayers || 0}})</span>
 
 <table mat-table [dataSource]="players" class="mat-elevation-z8">
     <ng-container matColumnDef="Name">
