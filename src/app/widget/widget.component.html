@@ -1,18 +1,23 @@
 <div class="widget">
-    <b>{{name}}</b> <span> Players:({{serverInfo?.Players || 0}}/ {{serverInfo?.MaxPlayers || 0}})</span>
+  <div *ngIf="!somethingWentWrong; else elseTemplate">
+    <b>{{name}}</b> <span> - Day: {{serverDay}} - Players:({{serverInfo?.Players || 0}} / {{serverInfo?.MaxPlayers ||
+      0}})</span>
+    <table mat-table [dataSource]="players" class="mat-elevation-z8">
+      <ng-container matColumnDef="Name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="TimeF">
+        <th mat-header-cell *matHeaderCellDef> Playing </th>
+        <td mat-cell *matCellDef="let element"> {{element.TimeF}} </td>
+      </ng-container>
 
-<table mat-table [dataSource]="players" class="mat-elevation-z8">
-    <ng-container matColumnDef="Name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
-    </ng-container>
-    <ng-container matColumnDef="TimeF">
-      <th mat-header-cell *matHeaderCellDef> Playing </th>
-      <td mat-cell *matCellDef="let element"> {{element.TimeF}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <ng-template #elseTemplate>
+    <b style="color: red">Failed to read server info for: {{name}} - {{ipport}}</b>
+  </ng-template>
 
 </div>
