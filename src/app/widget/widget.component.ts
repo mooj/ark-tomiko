@@ -33,12 +33,17 @@ export class WidgetComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.loadPlayers();
       this.interval = setInterval(() =>{
-          this.http.get<ServerResponse>(`${this.queryUrl}${this.ipport}`).subscribe(res => {
-            this.players = res.players;
-            this.serverInfo = res.info;
-          });
+       this.loadPlayers();  
       }, 10000);
+  }
+
+  loadPlayers(){
+    this.http.get<ServerResponse>(`${this.queryUrl}${this.ipport}`).subscribe(res => {
+      this.players = res.players;
+      this.serverInfo = res.info;
+    });
   }
 
 }

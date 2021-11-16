@@ -5,8 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "nodemon server.js",
-    "start:dev": "ng serve",
-    "build": "npm i && ng build",
+    "start:dev": "ng serve  --configuration development --proxy-config src/proxy.conf.json",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "heroku-postbuild": "ng build"
@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
     "dotenv": "^10.0.0",
+    "bootstrap":"4.3.1",
     "enhanced-resolve": "^5.8.3",
     "express": "^4.17.1",
     "nodemon": "^2.0.15",

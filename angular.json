@@ -81,7 +81,8 @@
               "browserTarget": "ark-tomiko:build:production"
             },
             "development": {
-              "browserTarget": "ark-tomiko:build:development"
+              "browserTarget": "ark-tomiko:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
