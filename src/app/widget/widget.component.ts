@@ -1,6 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 
 interface Player {
   Frags: number,
@@ -12,7 +11,7 @@ interface Player {
 
 
 interface ServerResponse {
-  info : {Map: string, MaxPlayers: number, Players: number};
+  info: { Map: string, MaxPlayers: number, Players: number };
   players: Player[]
 }
 
@@ -25,12 +24,11 @@ export class WidgetComponent implements OnInit, OnDestroy {
   @Input() ipport: string = '';
   @Input() name: string = '';
   private interval: any;
-  // private queryUrl = environment.api_url;
   private queryUrl = 'api/query/';
 
   players: any;
   serverInfo: any;
-  displayedColumns: string[] = [ 'Name', 'TimeF'];
+  displayedColumns: string[] = ['Name', 'TimeF'];
   constructor(private http: HttpClient) { }
 
   ngOnDestroy(): void {
@@ -41,12 +39,12 @@ export class WidgetComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loadPlayers();
-      this.interval = setInterval(() =>{
-       this.loadPlayers();  
-      }, 10000);
+    this.interval = setInterval(() => {
+      this.loadPlayers();
+    }, 10000);
   }
 
-  loadPlayers(){
+  loadPlayers() {
     this.http.get<ServerResponse>(`${this.queryUrl}${this.ipport}`).subscribe(res => {
       this.players = res.players;
       this.serverInfo = res.info;

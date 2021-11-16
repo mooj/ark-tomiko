@@ -1,56 +1,55 @@
 <div class="container">
-   
+
     <mat-accordion>
         <mat-expansion-panel [expanded]="true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-                Players list
-            </mat-panel-title>         
-          </mat-expansion-panel-header>
-          <div class="col-sm-12 players m-2">
-            <div *ngFor="let widget of servers">
-            <app-widget [ipport]="widget.ipport" [name]="widget.name"></app-widget>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Players list
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="col-sm-12 players m-2">
+                <div *ngFor="let widget of servers">
+                    <app-widget [ipport]="widget.ipport" [name]="widget.name"></app-widget>
+                </div>
             </div>
-        </div>
-        </mat-expansion-panel>        
-      </mat-accordion>
-
-
+        </mat-expansion-panel>
+    </mat-accordion>
 
     <mat-accordion>
         <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Servers admin
-            </mat-panel-title>         
-          </mat-expansion-panel-header>
-          <button mat-button (click)="openDialog('Add',{})" mat-flat-button color="primary">Add Server</button>
-          <button mat-button (click)="loadDefaults()" mat-flat-button color="warn">Reload with Tomiko defaults</button>
-          <div>
-              <table mat-table [dataSource]="servers" #mytable class="my-table mat-elevation-z8">
-              <ng-container matColumnDef="name">
-                  <th mat-header-cell *matHeaderCellDef> Name </th>
-                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-              </ng-container>
-              <ng-container matColumnDef="ipport">
-                  <th mat-header-cell *matHeaderCellDef> Ip and port </th>
-                  <td mat-cell *matCellDef="let element"> {{element.ipport}} </td>
-              </ng-container>
-          
-              <!-- Action Column -->
-              <ng-container matColumnDef="action">
-                  <th mat-header-cell *matHeaderCellDef> Action </th>
-                  <td mat-cell *matCellDef="let element" class="action-link"> 
-                  <a (click)="openDialog('Update',element)">Edit</a> | 
-                  <a (click)="openDialog('Delete',element)">Delete</a>  
-                  </td>
-              </ng-container>
-          
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-              </table>
-          </div>
-        </mat-expansion-panel>        
-      </mat-accordion>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Servers admin
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <button mat-button (click)="openDialog('Add',{})" mat-flat-button color="primary">Add Server</button>
+            <button mat-button (click)="loadDefaults()" mat-flat-button color="warn">Reload with Tomiko
+                defaults</button>
+            <div>
+                <table mat-table [dataSource]="servers" #mytable class="my-table mat-elevation-z8">
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="ipport">
+                        <th mat-header-cell *matHeaderCellDef> Ip and port </th>
+                        <td mat-cell *matCellDef="let element"> {{element.ipport}} </td>
+                    </ng-container>
+
+                    <!-- Action Column -->
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef> Action </th>
+                        <td mat-cell *matCellDef="let element" class="action-link">
+                            <a (click)="openDialog('Update',element)">Edit</a> |
+                            <a (click)="openDialog('Delete',element)">Delete</a>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
 
 </div>

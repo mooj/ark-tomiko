@@ -6,7 +6,6 @@ export interface UsersData {
   ipport: number;
 }
 
-
 @Component({
   selector: 'app-dialog-box',
   templateUrl: './dialog-box.component.html',
