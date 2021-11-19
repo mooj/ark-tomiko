@@ -14,6 +14,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/api/*", (req, res) => {
+  console.log('process', process.env);
   const url = `https://arkservers.net${req.url}`;
   request(url).pipe(res);
 });
